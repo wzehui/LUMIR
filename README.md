@@ -88,6 +88,6 @@ source $(poetry env info --path)/bin/activate
 
 
 ## 📖 Citation
-If you use this repository or the associated dataset, please cite our RecSys 2025 paper:
+If you use this repository or the associated dataset, please cite our paper:
 ```bibtex
 
