@@ -1,0 +1,76 @@
+# === Paths ===
+paths:
+  product: "../yelp/csv/business.csv"
+  review: "../yelp/csv/review_summary.csv"
+  photo: "../yelp/csv/photo_summary.csv"
+  itemid_map_path: "../yelp/dataset/itemid_to_int.json"
+  sequence: "../yelp/dataset/dataset.pickle"
+  embedding: "../cache/poi_embeddings"
+  representation: "../yelp/embeddings/"
+  results: "../results"
+
+# === Training Hyperparams ===
+batch_size: 8   # can try 128 / 256 with GradAccum
+epochs: 15
+seed: 2025
+
+#subset_ratio: 0.01
+
+# === Used Modalities ===
+used_modalities:
+#  - name
+#  - category
+#  - location
+#  - review_summary
+#  - photo_summary
+#  - rating_score
+#  - attributes
+#  - neighbor
+  - meta
+  - review
+  - photo
+
+# === Adaptive Token per Modality ===
+modality_token_per_modality:
+#  name: 1
+#  category: 1
+#  location: 1
+#  review_summary: 1
+#  photo_summary: 1
+#  rating_score: 1
+#  attributes: 1
+#  neighbor: 1
+  meta: 6
+  review: 6
+  photo: 4
+
+# === Model ===
+model:
+  embedding_dim: 768            # encoder output dim
+  fusion_dim: 512               # CoMM Fusion token dim
+  projection_dim: 2048          # Final Z_proj dim (saved as POI embedding)
+  num_layers: 2
+  num_heads: 4
+
+# === Loss ===
+loss:
+  tau_modality: 0.1  #0.2 #0.08
+  tau_align: 0.05   #0.08
+  lambda_modality: 1
+  lambda_align: 1
+
+# === Optimizer ===
+optimizer:
+  lr: 1e-5          # for fusion_module
+  encoder_lr: 5e-5  # for encoder (if unfrozen or LoRA)
+  weight_decay: 0.01
+
+# === Encoder ===
+freeze_encoder: False    # True → freeze encoder
+train_lora_only: True  # if freeze_encoder=False → whether to train only LoRA adapter
+save_static_embedding: False
+
+fusion_schedule:
+  warmup_epochs: 3
+  max_epochs: 15
+  min_p_full: 0.2

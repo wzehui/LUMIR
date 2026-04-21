@@ -1,0 +1,34 @@
+[project]
+name = "mmpoirec"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Zehui Wang",email = "zehui.wang@rwu.de"}
+]
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "pandas (>=2.2.3,<3.0.0)",
+    "torch (>=2.6.0,<3.0.0)",
+    "scipy (>=1.15.2,<2.0.0)",
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "numba (>=0.61.2,<0.62.0)",
+    "multiprocess (>=0.70.18,<0.71.0)",
+    "matplotlib (>=3.10.1,<4.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "tenacity (>=9.1.2,<10.0.0)",
+    "optuna (>=4.3.0,<5.0.0)",
+    "h3 (>=4.2.2,<5.0.0)",
+    "transformers (>=4.51.3,<5.0.0)",
+    "sentencepiece (>=0.2.0,<0.3.0)",
+    "protobuf (>=6.30.2,<7.0.0)"
+]
+
+[tool.poetry]
+packages = [
+    { include = "backbone" },
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
