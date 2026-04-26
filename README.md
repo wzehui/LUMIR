@@ -1,4 +1,4 @@
-# LLUMIR: Decoupled Multimodal Representation Learning via LLM-Based Unification for Next-POI Recommendation
+# LUMIR: Decoupled Multimodal Representation Learning via LLM-Based Unification for Next-POI Recommendation
 We propose LUMIR, a decoupled multimodal representation learning framework for point-of-interest (POI) recommendation.
 Instead of tightly coupling multimodal fusion with downstream recommendation models, LUMIR learns generalizable POI embeddings independently.
 
