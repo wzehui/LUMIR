@@ -38,8 +38,6 @@ nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
 
 **Python version**: `3.10`
 
----
-
 **Install Dependencies & Activate**
 
 ```
@@ -86,11 +84,7 @@ The processed files will be saved in:
 
 ## Representation Learning
 
-### Overview
-
 We learn POI representations in a **decoupled manner**, independent of downstream recommendation models. Each POI is described by multiple textual modalities (e.g., metadata, review summaries, photo summaries), which are encoded and fused into a unified embedding space.
-
----
 
 ### Multi-View Encoding
 
@@ -102,11 +96,7 @@ Each POI is associated with multiple textual sources, encoded using a shared tex
 
 The encoder produces modality-specific embeddings, which are then passed to a fusion module.
 
----
-
 Run `train_representation_tuning.py` to perform hyperparameter search and obtain the best embeddings.
-
----
 
 ### Hyperparameter Search
 
@@ -118,8 +108,6 @@ We tune key components including:
 - Window size  
 
 Each configuration is trained independently and evaluated using intrinsic metrics.
-
----
 
 ### Intrinsic Evaluation
 
@@ -135,9 +123,7 @@ Metrics:
 
 Model selection is based on **MRR@K (primary)** and **Hit@K (secondary)**.
 
----
-
-- Best embeddings are stored as compressed `.csv.gz` files and saved to `yelp/embeddings/`
+Best embeddings are stored as compressed `.csv.gz` files and saved to `yelp/embeddings/`
 
 ### Downstream Evaluation
 
@@ -153,8 +139,6 @@ This script performs **model-specific hyperparameter tuning** using Optuna for d
 
 The learned POI embeddings are loaded and injected into these models as fixed item representations.
 
----
-
 ### Evaluation Pipeline
 
 For each backbone model:
@@ -168,8 +152,6 @@ For each backbone model:
 The primary metric used during tuning is:
 
 - **NDCG@20**
-
----
 
 ### Hyperparameter Optimization
 
@@ -189,8 +171,6 @@ Each trial:
 
 The search runs for a fixed number of trials (e.g., 50 per model).
 
----
-
 ### Final Evaluation
 
 After hyperparameter tuning, the best configurations are selected and used for final evaluation via:
@@ -198,8 +178,6 @@ After hyperparameter tuning, the best configurations are selected and used for f
 evaluation/baseline_experiment_modality.py
 
 This script reports the final performance of the embeddings across different models and settings.
-
----
 
 ### Output
 
