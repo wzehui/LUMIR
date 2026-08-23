@@ -201,4 +201,10 @@ This document reports the **beyond-accuracy performance** of the learned embeddi
 ## 📖 Citation
 If you use this repository or the associated dataset, please cite our paper:
 ```bibtex
-
+@inproceedings{wang2026lumir,
+  author    = {Wang, Zehui and H{\"o}pken, Wolfram and Jannach, Dietmar},
+  title     = {{LUMIR}: Decoupled Multimodal Representation Learning from Heterogeneous Data for Next-{POI} Recommendation},
+  booktitle = {Proceedings of the 2nd International Workshop on Data Quality-Aware Multimodal Recommendation (DaQuaMRec 2026)},
+  year      = {2026},
+  address   = {Minneapolis, Minnesota, USA}
+}
